@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 // 노드에서 경로를 쉽게 조작할수있게 해주는것
+const port = process.env.PORT || 3000;
 
 const RefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 
@@ -53,10 +54,9 @@ module.exports = {
     },
 
     devServer : {
+        port: port,
         publicPath : '/dist/',
         hot : true,
         open : true,
     }
 };
-
-// 목적 : jsx를 합쳐서 app.js를 만들어서 index에서 작동하게 만들어주는것 !
