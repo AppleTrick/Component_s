@@ -41,7 +41,11 @@ module.exports = {
                     'react-refresh/babel'
                 ],
             },
-        }],
+        },
+        {
+            test: /\.css$/,
+            use: ["style-loader", "css-loader", "postcss-loader"],
+        },],
     },
     plugins : [
         new webpack.LoaderOptionsPlugin({debug: true}),
