@@ -1,15 +1,20 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-function Header(){
+function Header( {location, history}){    
+
+    
+    console.log(history);
+    console.log(location);
     return (
         <header className='header'>
             <strong>Header</strong>
             <ul>
                 <li>
-                    <button>홈</button>
+                    <button onClick={() => history.push('/main')}>홈</button>
                 </li>
                 <li>
-                    <a href=''>프로필</a>
+                    <Link to='/main/profile'>프로필</Link>
                 </li>
             </ul>
         </header>
