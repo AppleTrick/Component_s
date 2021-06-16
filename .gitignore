@@ -102,3 +102,28 @@ dist
 
 # TernJS port file
 .tern-port
+<<<<<<< HEAD
+=======
+
+# Stores VSCode versions used for testing VSCode extensions
+.vscode-test
+
+# Temporary folders
+tmp/
+temp/
+
+### react ###
+.DS_*
+**/*.backup.*
+**/*.back.*
+
+node_modules
+
+*.sublime*
+
+psd
+thumb
+sketch
+
+# End of https://www.toptal.com/developers/gitignore/api/react,node
+>>>>>>> a9237e0428b0da20f78f839d5090ef7813b270c6
