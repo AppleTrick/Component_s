@@ -1,7 +1,11 @@
 import React from "react";
-import {users} from './data.json';
+import data from './data.json';
 
 const UserDetail = ({match , history}) => {
+    
+    const {users} = data;
+    console.log(users);
+
     const user = users.find((user) => user.id === match.params.id);
     return(
         <>

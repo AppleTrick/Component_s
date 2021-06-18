@@ -1,8 +1,12 @@
 import React from "react";
 import {Link} from "react-router-dom";
-import {users} from "./data.json";
+import data from "./data.json";
 
 const UserList = ({match}) => {
+
+    const {users} = data;
+    console.log(users);
+
     return(
         <>
             <h2>UserList</h2>
