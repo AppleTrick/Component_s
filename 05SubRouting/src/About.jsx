@@ -1,10 +1,12 @@
 import React from "react";
 
-const About = () => {
+const About = ({ match, location, history}) => {
   return (
     <>
       <h1>About</h1>
-      <p>How am I?</p>
+      <pre>{JSON.stringify(match,null,2)}</pre>
+      <pre>{JSON.stringify(location,null,2)}</pre>
+      <pre>{JSON.stringify(history,null,2)}</pre>
     </>
   );
 }
