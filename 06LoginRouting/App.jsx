@@ -14,6 +14,8 @@ import { signIn } from './auth';
 const App = () => {
 
     const [user, setUser] = useState(null); // 초기값 설정안함
+
+    //authenicated 유저가 존재하면 true 아니면 false
     const authenticated = user != null;
 
     const login = ({email, password}) => setUser(signIn({email, password}));
@@ -41,12 +43,13 @@ const App = () => {
                 <main>
                     {/* Switch를 통해 정확하게 보내서 갈길수 있다. */}
                     <Switch>
-                        <AuthRoute authenticated={authenticated} path="/profile" render = {props => <Profile user= {user} {...props}/> }/>
                         <Route exact path ="/" component={Home}/>
                         <Route path ="/about" component={About}/>
                         <Route path ="/users" component={Users}/>
-                        <Route path ="/profile" component={Profile}/>
+                        <AuthRoute authenticated={authenticated} path="/profile" render = {props => <Profile user= {user} {...props}/> }/>
+                        {/* <Route path ="/profile" component={Profile}/> */}
                         <Route component={NotFound}/>
+                        
                     </Switch>
                 </main>
             </Router>
