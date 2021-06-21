@@ -8,18 +8,17 @@ import Profile from "./src/Profile";
 import AuthRoute from "./AuthRoute";
 
 import NotFound from "./src/NotFound";
+import LoginForm from "./src/LoginForm";
+import LogoutButton from "./src/LogoutButton";
 
 import { signIn } from './auth';
 
 const App = () => {
 
     const [user, setUser] = useState(null); // 초기값 설정안함
-
     //authenicated 유저가 존재하면 true 아니면 false
     const authenticated = user != null;
-
     const login = ({email, password}) => setUser(signIn({email, password}));
-
     const logout = () => setUser(null);
 
     return(
@@ -38,6 +37,11 @@ const App = () => {
                     <Link to = "/profile">
                         <button>Profile</button>
                     </Link>
+                    {authenticated ? (<LogoutButton logout={logout} />) : (
+                        <Link to="/login">
+                            <button>Login</button>
+                        </Link>
+                    )}
                 </header>
                 <hr/>
                 <main>
@@ -46,6 +50,12 @@ const App = () => {
                         <Route exact path ="/" component={Home}/>
                         <Route path ="/about" component={About}/>
                         <Route path ="/users" component={Users}/>
+                        <Route
+                            path="/login"
+                            render = { props => (
+                                <LoginForm authenticated={authenticated} login={login} {...props} />
+                            )}
+                        />
                         <AuthRoute authenticated={authenticated} path="/profile" render = {props => <Profile user= {user} {...props}/> }/>
                         {/* <Route path ="/profile" component={Profile}/> */}
                         <Route component={NotFound}/>
