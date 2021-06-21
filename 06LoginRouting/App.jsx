@@ -14,7 +14,7 @@ import { signIn } from './auth';
 const App = () => {
 
     const [user, setUser] = useState(null); // 초기값 설정안함
-    const authenticated = user != null;
+    const authenticated = user != null; // user가 존재하면 true 존재하지 않으면 false
 
     const login = ({email, password}) => setUser(signIn({email, password}));
 
